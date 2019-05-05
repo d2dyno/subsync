@@ -1,6 +1,6 @@
 FROM frolvlad/alpine-gxx AS builder
 
-RUN apk add --no-cache automake autoconf git build-base bison curl tar python3-dev && \
+RUN apk add --no-cache automake autoconf git build-base bison curl libtool tar python3-dev && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
     pip3 install --upgrade pip setuptools && \
