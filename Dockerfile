@@ -1,76 +1,12 @@
-FROM lsiobase/alpine:3.9 AS builder
+FROM frolvlad/alpine-gxx AS builder
 
-RUN \
- echo "**** install build packages ****" && \
- apk add --no-cache --virtual=build-dependencies \
-	autoconf \
-	automake \
-	bison \
-	freetype-dev \
-	g++ \
-	gcc \
-	jpeg-dev \
-	lcms2-dev \
-	libffi-dev \
-	libpng-dev \
-	libtool \
-	libwebp-dev \
-	linux-headers \
-	make \
-	openjpeg-dev \
-	openssl-dev \
-	python3-dev \
-	tiff-dev \
-	zlib-dev && \
- echo "**** install runtime packages ****" && \
- apk add --no-cache \
-	curl \
-	freetype \
-	git \
-	lcms2 \
-	libjpeg-turbo \
-	libwebp \
-	openjpeg \
-	openssl \
-	p7zip \
-	py3-lxml \
-	python3 \
-	tar \
-	tiff \
-	unrar \
-	unzip \
-	vnstat \
-	wget \
-	xz \
-	zlib && \
- echo "**** use ensure to check for pip and link /usr/bin/pip3 to /usr/bin/pip ****" && \
- python3 -m ensurepip && \
- rm -r /usr/lib/python*/ensurepip && \
- if \
-	[ ! -e /usr/bin/pip ]; then \
-	ln -s /usr/bin/pip3 /usr/bin/pip ; fi && \
- echo "**** install pip packages ****" && \
- pip install --no-cache-dir -U \
-	pip \
-	setuptools && \
- pip install -U \
-	configparser \
-	ndg-httpsclient \
-	notify \
-	paramiko \
-	pillow \
-	psutil \
-	pyopenssl \
-	requests \
-	setuptools \
-	urllib3 \
-	virtualenv && \
- echo "**** clean up ****" && \
- apk del --purge \
-	build-dependencies && \
- rm -rf \
-	/root/.cache \
-	/tmp/*
+RUN apk add --no-cache automake autoconf git build-base bison curl tar python3-dev && \
+    python3 -m ensurepip && \
+    rm -r /usr/lib/python*/ensurepip && \
+    pip3 install --upgrade pip setuptools && \
+    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
+    if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
+    rm -r /root/.cache
 
 WORKDIR /build
 
