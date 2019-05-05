@@ -37,10 +37,9 @@ RUN wget https://sourceforge.net/projects/cmusphinx/files/pocketsphinx/5prealpha
 
 ENV FFMPEGVER https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
 
-RUN mkdir -p /build/ffmpeg \
-	&& cd /build/ffmpeg \
+RUN cd /build \
 	&& wget "$FFMPEGVER" \
-	&& tar xf ffmpeg-release-amd64-static.xz
+	&& tar xf ffmpeg-release-amd64-static.tar.xz
 
 ENV FFMPEG_DIR /build/ffmpeg-release-amd64-static
 ENV SPHINXBASE_DIR /build/sphinxbase-5prealpha
