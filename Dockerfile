@@ -11,7 +11,8 @@ RUN apk add --no-cache alsa-lib-dev \
     python3-dev \
     swig \
     tar \
-    wget && \
+    wget \
+    xz && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
     pip3 install --upgrade pip setuptools && \
