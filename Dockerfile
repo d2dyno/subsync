@@ -1,6 +1,6 @@
 FROM frolvlad/alpine-python3 as builder
 
-RUN apk add alpine-sdk
+RUN apk add --update build-base
 
 WORKDIR /build
 
