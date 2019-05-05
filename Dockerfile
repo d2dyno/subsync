@@ -1,4 +1,4 @@
-FROM lsiobase/alpine.python3 as builder
+FROM lsiobase/alpine.python3 AS builder
 
 RUN apk add --update libtool bison
 
