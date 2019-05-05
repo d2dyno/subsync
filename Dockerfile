@@ -1,6 +1,6 @@
 FROM frolvlad/alpine-python3 as builder
 
-RUN apk add --update libtool automake autoconf git
+RUN apk add --update libtool automake autoconf git build-base
 
 WORKDIR /build
 
