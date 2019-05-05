@@ -7,6 +7,8 @@ RUN apk add --no-cache automake \
     curl \
     git \
     libtool \
+    pulseaudio \
+    pulseaudio-dev \
     python3-dev \
     swig \
     tar && \
