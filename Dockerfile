@@ -39,7 +39,7 @@ ENV FFMPEGVER https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-sta
 
 RUN mkdir -p /build/ffmpeg \
 	&& cd /build/ffmpeg \
-	&& curl "$FFMPEGVER" \
+	&& wget "$FFMPEGVER" \
 	&& tar xf $(basename "$FFMPEGVER")
 
 ENV FFMPEG_DIR /build/ffmpeg
