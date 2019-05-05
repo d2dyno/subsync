@@ -1,6 +1,6 @@
 FROM frolvlad/alpine-python3 as builder
 
-RUN apk add build-base git autoconf
+RUN apk add alpine-sdk
 
 WORKDIR /build
 
