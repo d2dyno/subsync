@@ -1,12 +1,12 @@
 FROM frolvlad/alpine-gxx AS builder
 
-RUN apk add --no-cache automake \
+RUN apk add --no-cache alsa-lib-dev \
+    automake \
     autoconf \
     bison \
     build-base \ 
     curl \
     git \
-    libasound2-dev \
     libtool \
     python3-dev \
     swig \
