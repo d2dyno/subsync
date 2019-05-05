@@ -30,7 +30,7 @@ ENV SPHINXBASE_DIR /build/sphinxbase
 ENV POCKETSPHINX_DIR /build/pocketsphinx
 ENV USE_PKG_CONFIG yes
 
-mkdir -p /app \
+RUN mkdir -p /app \
 	&& git clone https://github.com/sc0ty/subsync.git /app/subsync \
 	&& pip install -r /app/subsync/requirements.txt \
 	&& cd /app/subsync/gizmo \
