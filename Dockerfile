@@ -45,7 +45,7 @@ RUN cd /build \
 ENV FFMPEG_DIR /build/ffmpeg-release-amd64-static
 ENV SPHINXBASE_DIR /build/sphinxbase-5prealpha
 ENV POCKETSPHINX_DIR /build/pocketsphinx-5prealpha
-ENV USE_PKG_CONFIG yes
+ENV USE_PKG_CONFIG no
 
 RUN mkdir -p /app \
 	&& git clone https://github.com/sc0ty/subsync.git /app/subsync \
